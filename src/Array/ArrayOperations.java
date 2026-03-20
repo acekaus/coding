@@ -44,16 +44,15 @@ public class ArrayOperations {
     }
     public static int maximumWealth(int[][] accounts) {
         int row= accounts.length;
+
         int column= accounts[0].length;
         int max_sum=0;
-        for(int i=0;i<row;i++)
-        {
-            int sum=0;
-            for(int j=0;j<column;j++)
-            {
-                sum=sum+accounts[i][j];
+        for (int[] account : accounts) {
+            int sum = 0;
+            for (int j = 0; j < column; j++) {
+                sum = sum + account[j];
             }
-            max_sum=max_sum>sum?max_sum:sum;
+            max_sum = Math.max(max_sum, sum);
         }
         return max_sum;
     }
@@ -70,7 +69,8 @@ public class ArrayOperations {
     public static int[] getConcatenation(int[] nums) {
         int length= nums.length;
         int ans[]= new int[2*length];
-        /* for linear time complexity
+         /*
+         for linear time complexity
         System.arraycopy(nums,0,ans,0,n);
         System.arraycopy(nums,0,ans,n,n);
          */
